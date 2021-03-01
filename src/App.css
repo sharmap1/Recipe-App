@@ -2,12 +2,13 @@
   background-color: #7f3481;
   color: #fff;
   text-align: center;
+  padding: "none" !important;
 }
 
 .brand-icon {
   font-size: 80px;
 }
 #root {
-  background-color: lightblue;
+  background-color: thistle;
   height: 400vh;
 }

@@ -12,9 +12,8 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 345,
-    margin: "10px 5px",
+  rounded: {
+    margin: "10px 10px",
   },
   media: {
     height: 0,
@@ -31,42 +30,91 @@ const useStyles = makeStyles((theme) => ({
     transform: "rotate(180deg)",
   },
 
+  overrides: {
+    MuiCardHeader: {
+      title: {
+        backgroundColor: "orange",
+        fontSize: "0px",
+      },
+    },
+  },
 }));
 
 const RecipeItem = ({ name, image, ingredientLines }) => {
-  const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  const classes = useStyles();
   return (
-    <Card className={classes.root}>
-      <CardHeader title={name} />
-      <CardMedia className={classes.media} image={image} title={name} />
+    <>
+      <Card className={classes.rounded}>
+        <CardHeader
+          title={name}
+          style={{
+            color: "yellow",
+            backgroundColor: "darkmagenta",
+            fontSize: "20px",
+          }}
+        />
+        <CardMedia className={classes.media} image={image} />
 
-      <CardActions disableSpacing>
-        <div>Ingredients</div>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
+        <CardActions
+          disableSpacing
+          style={{
+            color: "yellow",
+            backgroundColor: "dimgrey",
+            fontSize: "20px",
+          }}
         >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>
-            {ingredientLines.map((ingredient) => (
-              <li className="list-group-item">{ingredient}</li>
-            ))}
-          </Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
+          <div>Ingredients</div>
+          <IconButton
+            style={{
+              color: "yellow",
+              fontSize: "20px",
+            }}
+            size="small"
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent
+            style={{
+              color: "#616161",
+              padding: "0",
+              fontWeight: "bold",
+            }}
+          >
+            <Typography
+              paragraph
+              style={{
+                marginBottom: "0px",
+              }}
+            >
+              {ingredientLines.map((ingredient) => (
+                <li
+                  className="list-group-item"
+                  style={{
+                    backgroundColor: "#e1bee7",
+                    padding: "10px",
+                    fontSize: "15px",
+                  }}
+                >
+                  {ingredient}
+                </li>
+              ))}
+            </Typography>
+          </CardContent>
+        </Collapse>
+      </Card>
+    </>
   );
 };
 
