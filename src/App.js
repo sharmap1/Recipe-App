@@ -32,6 +32,7 @@ function App() {
     setQuery(search);
   };
   return (
+    <>
     <div className="App">
       <Header
         search={search}
@@ -42,6 +43,9 @@ function App() {
         <Recipes recipes={recipes} />
       </div>
     </div>
+
+    
+    </>
   );
 }
 

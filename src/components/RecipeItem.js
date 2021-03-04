@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { StylesProvider } from "@material-ui/styles";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -12,8 +13,8 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
-  rounded: {
-    margin: "10px 10px",
+  root: {
+    // height: "500px",
   },
   media: {
     height: 0,
@@ -29,15 +30,17 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: "rotate(180deg)",
   },
-
-  overrides: {
-    MuiCardHeader: {
-      title: {
-        backgroundColor: "orange",
-        fontSize: "0px",
-      },
-    },
+  font: {
+    textDecoration: "underline",
+    fontSize: "10px",
   },
+  // overrides: {
+  //   MuiPaper: {
+  //     root: {
+  //       backgroundColor: "plum",
+  //     },
+  //   },
+  // },
 }));
 
 const RecipeItem = ({ name, image, ingredientLines }) => {
@@ -47,27 +50,25 @@ const RecipeItem = ({ name, image, ingredientLines }) => {
   };
   const classes = useStyles();
   return (
-    <>
-      <Card className={classes.rounded}>
+    <StylesProvider>
+      <Card className={classes.root}>
         <CardHeader
           title={name}
           style={{
             color: "yellow",
             backgroundColor: "darkmagenta",
-            fontSize: "20px",
           }}
         />
+
         <CardMedia className={classes.media} image={image} />
 
         <CardActions
-          disableSpacing
           style={{
             color: "yellow",
             backgroundColor: "dimgrey",
-            fontSize: "20px",
           }}
         >
-          <div>Ingredients</div>
+          <Typography>Ingredients</Typography>
           <IconButton
             style={{
               color: "yellow",
@@ -114,7 +115,7 @@ const RecipeItem = ({ name, image, ingredientLines }) => {
           </CardContent>
         </Collapse>
       </Card>
-    </>
+    </StylesProvider>
   );
 };
 

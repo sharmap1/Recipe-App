@@ -12,3 +12,13 @@
   background-color: thistle;
   height: 400vh;
 }
+.MuiTypography-h5 {
+  font-size: 20px !important;
+  height: 45px;
+}
+.MuiCardHeader-root {
+  padding: 10px !important;
+}
+.MuiCardActions-spacing > :not(:first-child) {
+  margin-left: none !important;
+}
