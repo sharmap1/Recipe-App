@@ -56,7 +56,7 @@ const RecipeItem = ({ name, image, ingredientLines }) => {
           title={name}
           style={{
             color: "yellow",
-            backgroundColor: "darkmagenta",
+            backgroundColor: "#345c81",
           }}
         />
 
@@ -65,7 +65,7 @@ const RecipeItem = ({ name, image, ingredientLines }) => {
         <CardActions
           style={{
             color: "yellow",
-            backgroundColor: "dimgrey",
+            backgroundColor: "#345c81",
           }}
         >
           <Typography>Ingredients</Typography>
@@ -88,7 +88,7 @@ const RecipeItem = ({ name, image, ingredientLines }) => {
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent
             style={{
-              color: "#616161",
+              color: "black",
               padding: "0",
               fontWeight: "bold",
             }}
@@ -103,7 +103,7 @@ const RecipeItem = ({ name, image, ingredientLines }) => {
                 <li
                   className="list-group-item"
                   style={{
-                    backgroundColor: "#e1bee7",
+                    backgroundColor: "lightblue",
                     padding: "10px",
                     fontSize: "15px",
                   }}

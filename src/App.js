@@ -10,7 +10,8 @@ function App() {
   const [query, setQuery] = useState("");
 
   const APP_ID = "b20cae72";
-  const APP_KEY = "7f92d83712fb1d22ac58cd5e48c8e7b7";
+  const APP_KEY = process.env.REACT_APP_RECIPE_KEY;
+
   useEffect(() => {
     getRecipes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -33,18 +34,16 @@ function App() {
   };
   return (
     <>
-    <div className="App">
-      <Header
-        search={search}
-        updateSearch={updateSearch}
-        onSearchClick={onSearchClick}
-      />
-      <div className="container">
-        <Recipes recipes={recipes} />
+      <div className="App">
+        <Header
+          search={search}
+          updateSearch={updateSearch}
+          onSearchClick={onSearchClick}
+        />
+        <div className="container">
+          <Recipes recipes={recipes} />
+        </div>
       </div>
-    </div>
-
-    
     </>
   );
 }
